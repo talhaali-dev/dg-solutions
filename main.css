@@ -1,22 +1,48 @@
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-.scroll-container {
-    scroll-snap-type: y mandatory; /* Change to 'x' for horizontal snapping */
-    overflow-y: scroll; /* Use overflow-x for horizontal scrolling */
-    height: 100vh; /* Ensure the container has a height to allow scrolling */
-    scroll-behavior: smooth; /* Enables smooth scrolling */
-    display: flex;
-    flex-direction: column; /* Adjust if horizontal snapping is needed */
+    overflow-x: hidden;
 }
 
-  /* Apply to the child elements within the scroll container */
-  .section {
-    scroll-snap-align: start; /* Aligns each section to the start */
-    flex: 0 0 100vh; /* Each section takes full viewport height */
-    width: 100%; /* Adjust for horizontal scrolling if needed */
+.scroll-container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    width: 100%;
+}
+.navbar-nav{
+    background-color: white !important;
+    padding: 10px;
+}
+.navbar-hero {
+    background-image: url(hero2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navbar-toggler {
+    border: none;
+    /* background-color: transparent; */
+}
+
+
+/* Ensure the hero section doesn't get covered by the fixed navbar */
+.hero-section {
+    padding-top: 80px; /* Adjust based on your navbar height */
+}
+
+/* Ensure the hero section doesn't get covered by the fixed navbar */
+.hero-section {
+    padding-top: 80px; /* Adjust based on your navbar height */
 }
 
 body {
@@ -34,17 +60,6 @@ body {
 }
 
 
-.navbar-hero {
-    min-height: 100vh;
-    width: 100%;
-     /* background-color: rgba(0, 0, 0, 0.5); */
-}
-
-/* Navbar Styles */
-.navbar {
-    /* background-color: transparent; */
-    padding: 1rem;
-}
 
 .navbar-brand img {
     max-width: 70px;
@@ -60,6 +75,8 @@ body {
 }
 
 .navbar-nav {
+    background-color: white;
+    padding: 50px !important;
     font-size: 1.1rem;
 }
 
@@ -636,24 +653,6 @@ p {
     padding-bottom: 60px; /* Footer ki height se space */
 }
 
-.footer {
-    background-color: rgb(3, 3, 24);
-    color: #fff;
-    padding: 20px;
-    margin: 0;
-    width: 100%;
-    /* position: fixed;  */
-    /* Fixed position */
-    bottom: 0; /* Zameen ke saath chipkana */
-    left: 0;
-    right: 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
 
 .copyright {
     text-align: center;
@@ -792,27 +791,28 @@ margin-left: 1200px;
     }
   }
 
-  .footer {
+  @media (max-width: 768px) {
+    .footer-content > div {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }}
+    .footer {
+        background-color: rgb(3, 3, 24);
+        color: #fff;
+        padding: 20px;
+        margin: 0;
+        width: 100%;
+    }
 
-    padding: 20px 0; /* Padding upar aur neeche */
-  }
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 
-  .footer-content {
-    display: flex; /* Flexbox layout */
-    justify-content: space-between; /* Items ke beech space dene ke liye */
-    align-items: flex-start; /* Items ko vertically top par align karne ke liye */
-  }
-
-  .footer-content > div {
-    flex: 1; /* Har section ko equal width dene ke liye */
-    padding: 10px; /* Uniform padding for all sections */
-    box-sizing: border-box; /* Padding ko width mein include karne ke liye */
-    min-height: 150px; /* Minimum height to ensure uniformity */
-    margin: 0; /* Margin ko remove karen */
-  }
-
-  /* Icon styling (optional) */
-  .icon-link {
-    margin-right: 10px; /* Icons ke beech space */
-    font-size: 20px; /* Icon size */
-  }
+    .copyright {
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+    }
